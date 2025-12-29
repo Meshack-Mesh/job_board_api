@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Applications{% endblock %}
+
+{% block content %}
+<h2>Applications</h2>
+
+<div class="list">
+{% for app in applications %}
+    <div class="list-item">
+        <p><strong>{{ app.user.username }}</strong> applied for <strong>{{ app.job.title }}</strong></p>
+        <p>Status: {{ app.status }}</p>
+    </div>
+{% empty %}
+    <p>No applications yet.</p>
+{% endfor %}
+</div>
+{% endblock %}
