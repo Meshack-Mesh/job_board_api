@@ -4,6 +4,7 @@ from jobs.models import Job
 
 User = settings.AUTH_USER_MODEL
 
+
 class Application(models.Model):
     STATUS_CHOICES = [
         ('pending', 'Pending'),
@@ -24,7 +25,9 @@ class Application(models.Model):
     )
     resume = models.FileField(upload_to='resumes/')
     cover_letter = models.TextField(blank=True, null=True)
+
     applied_at = models.DateTimeField(auto_now_add=True)
+
     status = models.CharField(
         max_length=20,
         choices=STATUS_CHOICES,
